@@ -29,6 +29,7 @@ exports.onExecutePostLogin = async (event, api) => {
   });
 
   const params =  { id : event.user.user_id};
+  // This is the role id you want to be the default role.
   const data = { "roles" : ["rol_IatI22wjEZr0fwsp"]};
 
   try {
