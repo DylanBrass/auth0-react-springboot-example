@@ -5,27 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="85d58724-e321-4762-ac1c-4cc2009a4444" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/FE/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/.idea/active-tab-highlighter-v2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/.idea/auth0-demo.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/public/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/public/logo192.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/public/logo512.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/public/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/public/robots.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/src/App.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/src/App.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/src/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/src/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FE/src/logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,14 +14,14 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="DarkyenusTimeTracker">
-    <option name="totalTimeSeconds" value="441" />
+    <option name="totalTimeSeconds" value="692" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/FE" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2pzGe2kGHYuj1wYiTlBVxC4CCvp" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -49,7 +30,13 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/home/dylanbrass/Desktop/auth0-demo/FE",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "go.import.settings.migrated": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "/home/dylanbrass/Desktop/auth0-demo",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -57,6 +44,7 @@
     "nodejs_interpreter_path": "/home/dylanbrass/.config/JetBrains/WebStorm2024.1/node/node-v18.15.0-linux-x64/bin/node",
     "nodejs_package_manager_path": "npm",
     "npm.npm start.executor": "Run",
+    "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -78,7 +66,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-WS-241.18034.50" />
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.27397.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.27397.103" />
       </set>
     </attachedChunks>
   </component>
@@ -91,10 +80,14 @@
       <option name="presentableId" value="Default" />
       <updated>1733761582142</updated>
       <workItem from="1733761583166" duration="1847000" />
+      <workItem from="1763581787871" duration="266000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VgoProject">
+    <settings-migrated>true</settings-migrated>
   </component>
 </project>
