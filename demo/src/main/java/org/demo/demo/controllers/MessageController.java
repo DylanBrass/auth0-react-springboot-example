@@ -7,6 +7,8 @@ import org.demo.demo.models.Message;
 import org.demo.demo.services.MessageService;
 import org.json.JSONException;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -29,8 +31,8 @@ public class MessageController {
 
     @GetMapping("/protected/customer")
     @PreAuthorize("hasAuthority('read:customer')")
-    public Message getProtectedCustomer() {
-        return messageService.getCustomerMessage();
+    public Message getProtectedCustomer(@AuthenticationPrincipal Jwt user) {
+        return messageService.getCustomerMessage(user);
     }
 
     @GetMapping("/admin")
