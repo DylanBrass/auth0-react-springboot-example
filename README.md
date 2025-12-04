@@ -138,6 +138,7 @@ String id = user.getSubject();
 `Note:` You can also add Username as a required field by following the same steps.
 
 `Note:` There's a warning at the top of the options because you need a SMS provider to send verification codes.
+
 # Auth0 action to add default role
 
 ## Create Management API application
@@ -150,7 +151,6 @@ String id = user.getSubject();
 4. Select the "Auth0 Management API" from the list of APIs.
 ![img_3.png](img_3.png)
 5. In the "Permissions" section, select the following scopes (at least):
-    - read:roles
     - create:role_members
 6. Click "Authorize".
 7. Then on the settings page of the application, note down the Client ID and Client Secret.
@@ -175,17 +175,20 @@ String id = user.getSubject();
     - You can find the role ID in the "Roles" section under "User Management" in the Auth0 dashboard by clicking on the role and checking the role ID.
     - ![img_5.png](img_5.png)
 7. Add the dependency `auth0` by clicking on the "Add Dependency" button and writing `auth0@latest` in the input field.
+   
 ![img.png](img.png)
+
 ![img_1.png](img_1.png)
-8. Add the environment variables as per the instructions below.
+
+9. Add the environment variables as per the instructions below.
    - domain - Your Auth0 domain (e.g., `your-domain.auth0.com`)
    - clientId - Your Management API client ID (from the application you created earlier)
    - clientSecret - Your Management API client secret
-9. Click "Deploy" to save and deploy the action.
-10. Back in the Post Login flow page, connect the action to the flow by dragging the action from the right side panel to the flow diagram.
+10. Click "Deploy" to save and deploy the action.
+11. Back in the Post Login flow page, connect the action to the flow by dragging the action from the right side panel to the flow diagram.
 ![img_4.png](img_4.png)
-11. Click "Apply".
-12. Test the action by creating a new user and logging in. The user should be assigned the default role automatically.
+12. Click "Apply".
+13. Test the action by creating a new user and logging in. The user should be assigned the default role automatically.
    - You can verify this by checking the user's roles in the Auth0 dashboard under "User Management" -> "Users".
 
 ### Environment Variables
