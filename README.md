@@ -18,6 +18,7 @@
 ![Application Settings](app_settings.png)
 
 2. Add the callback URL for your application (e.g., `http://localhost:3000/callback` for local development).
+   - This is the URL where Auth0 will redirect users after they have authenticated.
 3. Add the allowed logout URL for your application (e.g., `http://localhost:3000` for local development).
 4. Add the allowed web origins for your application (e.g., `http://localhost:3000` for local development).
 5. Save the changes.
@@ -35,6 +36,10 @@
 4. Click "Create".
 
 ## Set up the application to use Auth0
+
+`Note`: all values with `your-...` should be replaced with your actual Auth0 values. Anything inputed by you in the previous steps 
+should be used here, be attentive to the names, they should match what you have set in Auth0.
+
 1. In the environment variables of your frontend application, set the following variables:
 ```env
 REACT_APP_DOMAIN=your-auth0-domain
@@ -143,20 +148,20 @@ String id = user.getSubject();
 
 ## Create Management API application
 1. Go to the "Applications" section and click on "Create Application".
-![img_2.png](img_2.png)
+![Create Management API.png](creating_management_api.png)
 2. Fill in the details:
     - Name: Your application name (e.g., "Management API App")
     - Application Type: Machine to Machine Applications
 3. Click "Create".
 4. Select the "Auth0 Management API" from the list of APIs.
-![img_3.png](img_3.png)
+![Create.png](adding_app_management.png)
 5. In the "Permissions" section, select the following scopes (at least):
     - create:role_members
 6. Click "Authorize".
 7. Then on the settings page of the application, note down the Client ID and Client Secret.
 8. Navigate to "APIs" section and authorize the application to access the Auth0 Management API if not done already.
 9. You will also add the Spring Boot API you created earlier as an allowed audience for this application in the settings page.
-![img_7.png](img_7.png)
+![Machine to machine UI](apis_management_api.png)
 10. Click "Save".
 
 ## Create Post Login Action to assign default role
@@ -173,12 +178,12 @@ String id = user.getSubject();
 6. Copy and paste the code below into the code editor, replacing any existing code.
     - Make sure to replace `"default-role-id"` with the actual role ID you created earlier. 
     - You can find the role ID in the "Roles" section under "User Management" in the Auth0 dashboard by clicking on the role and checking the role ID.
-    - ![img_5.png](img_5.png)
+    - ![Getting role id](role_id.png)
 7. Add the dependency `auth0` by clicking on the "Add Dependency" button and writing `auth0@latest` in the input field.
    
-![img.png](img.png)
+![Flow Auth0 UI](flow_dep_icon.png)
 
-![img_1.png](img_1.png)
+![Adding dependencies icon](adding_dep.png)
 
 9. Add the environment variables as per the instructions below.
    - domain - Your Auth0 domain (e.g., `your-domain.auth0.com`)
@@ -186,7 +191,7 @@ String id = user.getSubject();
    - clientSecret - Your Management API client secret
 10. Click "Deploy" to save and deploy the action.
 11. Back in the Post Login flow page, connect the action to the flow by dragging the action from the right side panel to the flow diagram.
-![img_4.png](img_4.png)
+![Flow chart](flow_chart.png)
 12. Click "Apply".
 13. Test the action by creating a new user and logging in. The user should be assigned the default role automatically.
    - You can verify this by checking the user's roles in the Auth0 dashboard under "User Management" -> "Users".
