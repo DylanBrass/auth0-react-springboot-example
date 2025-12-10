@@ -4,9 +4,9 @@
 ## Setting up your account 
 
 1. Create an Auth0 account at [Auth0](https://auth0.com/).
-![Sign up page](auth0_signup.png)
+![Sign up page](guide_pictures/auth0_signup.png)
 2. Set up the tenant domain and other settings as per your requirements.
-![Tenant Set up](tenant_setup.png)
+![Tenant Set up](guide_pictures/tenant_setup.png)
     - In our case select React and Single Page Application as the application type (Should be automatic).
 3. Click "Create Application"
 
@@ -15,7 +15,7 @@
     - Domain
     - Client ID
     - Client Secret
-![Application Settings](app_settings.png)
+![Application Settings](guide_pictures/app_settings.png)
 
 2. Add the callback URL for your application (e.g., `http://localhost:3000/callback` for local development).
    - This is the URL where Auth0 will redirect users after they have authenticated.
@@ -26,13 +26,13 @@
 ## Create an API for the Spring Boot backend
 1. Go to the "APIs" section under "Applications" in the Auth0 dashboard.
 2. Click "Create API".
-![Create API](create_api.png)
+![Create API](guide_pictures/create_api.png)
 3. Fill in the details:
     - Name: Your API name (e.g., "My Spring Boot API")
     - Identifier: A unique identifier for your API (e.g., `https://myapi.example.com`)
       - This will be used as the audience in your Spring Boot application and frontend application.
     - Signing Algorithm: RS256
-![API Information form](API_information_form.png)
+![API Information form](guide_pictures/API_information_form.png)
 4. Click "Create".
 
 ## Set up the application to use Auth0
@@ -49,10 +49,10 @@ REACT_APP_API_SERVER_URL=http://localhost:8080
 REACT_APP_AUDIENCE=your-api-identifier
 ```
 ### Client Id and Domain can be found in the application settings page.
-![Client Id and Domain](client_id_domain.png)
+![Client Id and Domain](guide_pictures/client_id_domain.png)
 
 ### API Identifier can be found in the API settings page.
-![API identifier](api_identifier.png)
+![API identifier](guide_pictures/api_identifier.png)
 
 ## Set up the Spring Boot application to use Auth0
 1. In the `application.yml` file of your Spring Boot application , set the following properties:
@@ -67,7 +67,7 @@ okta:
 1. Go to the "APIs" section under "Applications" in the Auth0 dashboard
 2. Select the API you created for your Spring Boot backend.
 3. Go to the "Permissions" tab and add the required permissions (scopes) for your API.
-![Add permissions](adding_perms.png)
+![Add permissions](guide_pictures/adding_perms.png)
    - `Note:` if you use the code in this repository, I used `read:customer` and `read:admin-messages` permissions for the roles.
    - For example, you might add `read:messages` and `write:messages` permissions.
    - These permissions will be used in your Spring Boot application to secure endpoints. (e.g., `@PreAuthorize("hasAuthority('read:admin-messages')")`)
@@ -75,7 +75,7 @@ okta:
 ## Create a role and add permissions to it
 1. Go to the "Roles" section under "User Management" in the Auth0 dashboard.
 2. Click "Create Role".
-![Adding role](add_role.png)
+![Adding role](guide_pictures/add_role.png)
 3. Fill in the details:
     - Name: Your role name (e.g., "default-role")
     - Description: A brief description of the role.
@@ -83,18 +83,18 @@ okta:
 5. After you will be redirected to the role details page, go to the "Permissions" tab.
    - Otherwise, you can click on the role from the roles list to go to the role details page.
 6. Click "Add Permissions" and select the permissions you created for your API.
-![Add permissions page](add_permission_page.png)
+![Add permissions page](guide_pictures/add_permission_page.png)
 7. Select the API and the permissions to add to the role, then click "Add Permissions".
-![Add permissions to role](adding_permissions_to_role_for_api.png)
+![Add permissions to role](guide_pictures/adding_permissions_to_role_for_api.png)
 
 ### RBAC warning
 
 You should see a warning at the top of the page indicating that RBAC is not enabled for the API.
-![RBAC warning](rbac_warning.png)
+![RBAC warning](guide_pictures/rbac_warning.png)
 
 Click on the link in the warning to go to the API settings page, and scroll down to the "RBAC Settings" section.
 Enable the "Enable RBAC" and "Add Permissions in the Access Token" options, then click "Save".
-![Enable RBAC](RBAC_setting.png)
+![Enable RBAC](guide_pictures/RBAC_setting.png)
 
 ## Add role to a user
 1. Go to the "Users" section under "User Management" in the Auth0 dashboard.
@@ -134,11 +134,14 @@ String id = user.getSubject();
 2. Click on the database connection you are using (e.g., "Username-Password-Authentication").
 3. Go to the "Attributes" tab.
 4. Click "Activate" here.
-![Custom field prompt](activate_custom_fields.png)
+![Custom field prompt](guide_pictures/activate_custom_fields.png)
+
 5. Click on "Add Attribute" and select "phone_number" from the side menu.
-![Side pane](add_attribute_side_pane.png)
+![Side pane](guide_pictures/add_attribute_side_pane.png)
+
 6. Select and put the settings as per your requirements and click "Save".
-![Phone number options](phone_options.png)
+
+![Phone number options](guide_pictures/phone_options.png)
 
 `Note:` You can also add Username as a required field by following the same steps.
 
@@ -148,20 +151,20 @@ String id = user.getSubject();
 
 ## Create Management API application
 1. Go to the "Applications" section and click on "Create Application".
-![Create Management API.png](creating_management_api.png)
+![Create Management API.png](guide_pictures/creating_management_api.png)
 2. Fill in the details:
     - Name: Your application name (e.g., "Management API App")
     - Application Type: Machine to Machine Applications
 3. Click "Create".
 4. Select the "Auth0 Management API" from the list of APIs.
-![Create.png](adding_app_management.png)
+![Create.png](guide_pictures/adding_app_management.png)
 5. In the "Permissions" section, select the following scopes (at least):
     - create:role_members
 6. Click "Authorize".
 7. Then on the settings page of the application, note down the Client ID and Client Secret.
 8. Navigate to "APIs" section and authorize the application to access the Auth0 Management API if not done already.
 9. You will also add the Spring Boot API you created earlier as an allowed audience for this application in the settings page.
-![Machine to machine UI](apis_management_api.png)
+![Machine to machine UI](guide_pictures/apis_management_api.png)
 10. Click "Save".
 
 ## Create Post Login Action to assign default role
@@ -169,7 +172,7 @@ String id = user.getSubject();
 1. Go to the "Actions" section then "Triggers" in the Auth0 dashboard.
 2. Click on the "Post Login" flow.
 3. Click on "Add Action" and then "Create Custom".
-![Post login page](post_login_flow_page.png)
+![Post login page](guide_pictures/post_login_flow_page.png)
 4. Fill in the details:
     - Name: Your action name (e.g., "Assign Default Role")
     - Trigger: Leave as "Post Login"
@@ -178,12 +181,12 @@ String id = user.getSubject();
 6. Copy and paste the code below into the code editor, replacing any existing code.
     - Make sure to replace `"default-role-id"` with the actual role ID you created earlier. 
     - You can find the role ID in the "Roles" section under "User Management" in the Auth0 dashboard by clicking on the role and checking the role ID.
-    - ![Getting role id](role_id.png)
+    - ![Getting role id](guide_pictures/role_id.png)
 7. Add the dependency `auth0` by clicking on the "Add Dependency" button and writing `auth0@latest` in the input field.
    
-![Flow Auth0 UI](flow_dep_icon.png)
+![Flow Auth0 UI](guide_pictures/flow_dep_icon.png)
 
-![Adding dependencies icon](adding_dep.png)
+![Adding dependencies icon](guide_pictures/adding_dep.png)
 
 9. Add the environment variables as per the instructions below.
    - domain - Your Auth0 domain (e.g., `your-domain.auth0.com`)
@@ -191,7 +194,7 @@ String id = user.getSubject();
    - clientSecret - Your Management API client secret
 10. Click "Deploy" to save and deploy the action.
 11. Back in the Post Login flow page, connect the action to the flow by dragging the action from the right side panel to the flow diagram.
-![Flow chart](flow_chart.png)
+![Flow chart](guide_pictures/flow_chart.png)
 12. Click "Apply".
 13. Test the action by creating a new user and logging in. The user should be assigned the default role automatically.
    - You can verify this by checking the user's roles in the Auth0 dashboard under "User Management" -> "Users".
